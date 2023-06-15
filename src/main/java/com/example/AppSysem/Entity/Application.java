@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.servlet.http.Part;
-import java.sql.Time;
+
 import java.util.Date;
 @Data
 @Entity
@@ -15,8 +15,9 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private Time time;
+    private String time;
     private String status;
+    private String name;
     private Date date;
     private String discription;
     @Lob
@@ -29,7 +30,7 @@ public class Application {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "userId",insertable = false,updatable = false)
     private Users users;
-    private int userName;
+    private String userName;
     @Lob
     @JsonProperty("letter")
     private Part letter;

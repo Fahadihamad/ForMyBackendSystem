@@ -26,6 +26,9 @@ public class StaffService {
         return (Staffs) this.staffRepository.findUserById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("that id"+id+"not found"));
     }
+    public Staffs fetchStaffByUserName(String userName){
+        return this.staffRepository.findStaffByUserName(userName);
+    }
     @PreRemove
     public void deleteStaffs(Integer id){
 

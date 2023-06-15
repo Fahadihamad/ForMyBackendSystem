@@ -1,7 +1,9 @@
 package com.example.AppSysem.Entity;
 
-import javax.persistence.Entity;
+import lombok.Data;
 
+import javax.persistence.Entity;
+@Data
 @Entity
 public class Madrasa_build extends Application{
 
@@ -28,6 +30,9 @@ public class Madrasa_build extends Application{
         this.assisthead_secName = assisthead_secName;
         this.assisthead_lastName = assisthead_lastName;
         this.assissthead_phone = assissthead_phone;
+    }
+
+    public Madrasa_build(String name, String letter) {
     }
 
     public String getHead_firstName() {

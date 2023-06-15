@@ -2,12 +2,15 @@ package com.example.AppSysem.Controller;
 
 import com.example.AppSysem.Entity.Madrasa_build;
 import com.example.AppSysem.Repository.MadrasaRepository;
+
+import com.example.AppSysem.Services.FileStorageService;
 import com.example.AppSysem.Services.MadrasaBuildService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,8 @@ import java.util.Optional;
 public class MadrasaController {
     @Autowired
     public MadrasaRepository madrasaRepository;
+    @Autowired
+    private FileStorageService fileStorageService;
     @Autowired
     public MadrasaBuildService madrasaBuildService;
     @PostMapping("/add")
@@ -77,8 +82,16 @@ public class MadrasaController {
     public List<Madrasa_build> getAcceptedApplications() {
         return madrasaRepository.findByStatus("Accepted");
     }
-    @GetMapping("/rejected")
+    @GetMapping("/reject")
     public List<Madrasa_build> getRejectedApplications() {
         return madrasaRepository.findByStatus("Rejected");
+    }
+    @PostMapping("/upload")
+    public void uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("name") String name) {
+        String letter = fileStorageService.storeFile(file);
+
+        // Save the data entity with the file name and other attributes
+        Madrasa_build data = new Madrasa_build(name, letter);
+        // Save the data entity to the database or perform any other required operations
     }
 }

@@ -14,12 +14,15 @@ public class MadrasaBuildService {
     private MadrasaRepository madrasaRepository;
 
     public Madrasa_build addMadrasa(Madrasa_build madrasa){
+
         return this.madrasaRepository.save(madrasa);
     }
     public List<Madrasa_build> getAllMadrasa(){
+
         return this.madrasaRepository.findAll();
     }
     public Optional<Madrasa_build> getMadrasaById(Integer id){
+
         return this.madrasaRepository.findById(id);
     }
     public Madrasa_build updateMadrasa(Madrasa_build madrasaBuild){

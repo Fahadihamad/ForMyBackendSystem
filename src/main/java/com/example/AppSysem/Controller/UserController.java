@@ -5,6 +5,7 @@ import com.example.AppSysem.Entity.Sponsor;
 import com.example.AppSysem.Entity.Staffs;
 import com.example.AppSysem.Entity.Users;
 import com.example.AppSysem.Services.JwtService;
+import com.example.AppSysem.Services.StaffService;
 import com.example.AppSysem.Services.UserServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class UserController {
     public UserServices userServices;
     @Autowired
     public JwtService jwtService;
+    @Autowired
+    public StaffService staffService;
 
     @PostConstruct
     public void initRolesAndUsers() {
@@ -41,9 +44,17 @@ public class UserController {
     }
 
     @PostMapping({"/createStaffs"})
-    public Staffs createNewStaffs(@RequestBody Staffs staffs) {
-
-        return userServices.createNewStaffs(staffs);
+    public Staffs createNewStaffs(@RequestBody Staffs staffs) throws Exception {
+         String name = staffs.getUserName();
+         if(name != null && !"".equals(name)){
+           Staffs staffs1 =  staffService.fetchStaffByUserName(name);
+           if(staffs1 !=null){
+               throw new Exception("user with user name"+" "+name+" "+"already exist");
+           }
+         }
+        Staffs staffs1= null;
+         staffs1 = userServices.createNewStaffs(staffs);
+         return staffs1;
     }
 
     @PostMapping({"/createSponsors"})

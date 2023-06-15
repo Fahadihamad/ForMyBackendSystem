@@ -99,7 +99,7 @@ public class UserServices {
         adminUser.setFirstName("fahad");
         adminUser.setLastName("hamad");
         adminUser.setEmail("fahadpola222@gmail.com");
-        adminUser.setPassword(getEncodedPassword("pola"));
+        adminUser.setPassword(getEncodedPassword("polar"));
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
