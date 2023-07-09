@@ -1,0 +1,31 @@
+2023-06-30 15:44:33.680 [restartedMain] INFO  c.e.AppSysem.AppSysemApplication - Starting AppSysemApplication using Java 17.0.3 on DESKTOP-P9RL4HO with PID 10044 (C:\Users\fahad\Desktop\AppSysem\target\classes started by fahad in C:\Users\fahad\Desktop\AppSysem)
+2023-06-30 15:44:33.684 [restartedMain] INFO  c.e.AppSysem.AppSysemApplication - No active profile set, falling back to default profiles: default
+2023-06-30 15:44:33.863 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-30 15:44:33.866 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-30 15:44:37.152 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-30 15:44:37.797 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 620 ms. Found 8 JPA repository interfaces.
+2023-06-30 15:44:39.145 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2023-06-30 15:44:39.184 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-06-30 15:44:39.256 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:163)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.example.AppSysem.AppSysemApplication.main(AppSysemApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:210)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	... 13 common frames omitted
