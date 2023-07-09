@@ -1,7 +1,11 @@
 package com.example.AppSysem.Entity;
 
-import javax.persistence.Entity;
+import lombok.Data;
 
+import javax.persistence.Entity;
+import java.util.List;
+
+@Data
 @Entity
 public class Massjid_build extends Application {
     private String imam_firstName;
@@ -25,6 +29,9 @@ public class Massjid_build extends Application {
         this.assist_secName = assist_secName;
         this.assist_lastName = assist_lastName;
         this.assisst_phone = assisst_phone;
+    }
+
+    public Massjid_build(String imam_firstName, String imam_sectName, String imam_lasttName, String imam_phone, String assist_firstName, String assist_secName, String assist_lastName, String assisst_phone, String status, String date, String discription, String region, String shehia, String district, String street, List<String> savedImagePaths, List<String> savedFilePaths) {
     }
 
     public String getImam_firstName() {

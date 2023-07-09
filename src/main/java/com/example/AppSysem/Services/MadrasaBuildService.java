@@ -36,13 +36,13 @@ public class MadrasaBuildService {
         madrasaBuild1.setHead_lasttName(madrasaBuild.getHead_lasttName());
         madrasaBuild1.setHead_phone(madrasaBuild.getHead_phone());
         madrasaBuild1.setDistrict(madrasaBuild.getDistrict());
-        madrasaBuild1.setImage(madrasaBuild.getImage());
+        madrasaBuild1.setImageData(madrasaBuild.getImageData());
         madrasaBuild1.setRegion(madrasaBuild.getRegion());
         madrasaBuild1.setDate(madrasaBuild.getDate());
         madrasaBuild1.setDiscription(madrasaBuild.getDiscription());
-        madrasaBuild1.setLetter(madrasaBuild.getLetter());
+        madrasaBuild1.setFileData(madrasaBuild.getFileData());
         madrasaBuild1.setShehia(madrasaBuild.getShehia());
-        madrasaBuild1.setTime(madrasaBuild.getTime());
+
         madrasaBuild1.setStreet(madrasaBuild.getStreet());
         madrasaBuild1.setStatus(madrasaBuild.getStatus());
 

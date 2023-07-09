@@ -40,8 +40,8 @@ public class MasjidBuildService {
         existingMasjid.setAssisst_phone(massjid_build.getAssisst_phone());
         existingMasjid.setDate(massjid_build.getDate());
         existingMasjid.setDistrict(massjid_build.getDistrict());
-        existingMasjid.setLetter(massjid_build.getLetter());
-        existingMasjid.setImage(massjid_build.getImage());
+        existingMasjid.setFileData(massjid_build.getFileData());
+        existingMasjid.setImageData(massjid_build.getImageData());
         existingMasjid.setRegion(massjid_build.getRegion());
         existingMasjid.setShehia(massjid_build.getShehia());
         existingMasjid.setStreet(massjid_build.getStreet());

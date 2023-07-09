@@ -40,8 +40,8 @@ public class OrphansServices {
         Orphans orphans1 = applicationRepository.findOrphansById(orphans.getId()).orElse(null);
         orphans1.setDate(orphans.getDate());
         orphans1.setDistrict(orphans.getDistrict());
-        orphans1.setLetter(orphans.getLetter());
-        orphans1.setImage(orphans.getImage());
+        orphans1.setFileData(orphans.getFileData());
+        orphans1.setImageData(orphans.getImageData());
         orphans1.setRegion(orphans.getRegion());
         orphans1.setShehia(orphans.getShehia());
         orphans1.setStreet(orphans.getStreet());

@@ -41,8 +41,8 @@ public class PrivateServices {
         Personals personals1 = applicationRepository.getPersonalById(personals.getId()).orElse(null);
         personals1.setDate(personals.getDate());
         personals1.setDistrict(personals.getDistrict());
-        personals1.setLetter(personals.getLetter());
-        personals1.setImage(personals.getImage());
+        personals1.setFileData(personals.getFileData());
+        personals1.setImageData(personals.getImageData());
         personals1.setRegion(personals.getRegion());
         personals1.setShehia(personals.getShehia());
         personals1.setStreet(personals.getStreet());

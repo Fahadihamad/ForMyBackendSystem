@@ -8,23 +8,26 @@ import javax.persistence.*;
 import javax.servlet.http.Part;
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
 public class Application {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String time;
-    private String status;
-    private String name;
-    private Date date;
+    private String status="Pending";
+
+    private String date;
     private String discription;
     @Lob
-    private Part image;
+    private byte[] fileData;
     private String district;
     private String region;
     private String shehia;
+    private String imageFileName="imagefile";
+    private String fileFileName="filename";
 
     private String street;
     @ManyToOne(cascade = {CascadeType.ALL})
@@ -32,8 +35,7 @@ public class Application {
     private Users users;
     private String userName;
     @Lob
-    @JsonProperty("letter")
-    private Part letter;
+    private byte[] imageData;
 
 //    public Application() {
 //    }
