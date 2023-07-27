@@ -191,4 +191,9 @@ public class PrivateController {
     public List<Personals> getRejectedApplications() {
         return privateRepository.findByStatus("Rejected");
     }
+
+    @GetMapping("/pending")
+    public List<Personals> getPendingApplications() {
+        return privateRepository.findByStatus("Pending");
+    }
 }

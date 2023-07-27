@@ -198,4 +198,10 @@ public class MadrasaController {
         Madrasa_build data = new Madrasa_build(name, letter);
         // Save the data entity to the database or perform any other required operations
     }
+
+    @GetMapping("/pending")
+    public List<Madrasa_build> getPendingApplications() {
+
+    return madrasaRepository.findByStatus("Pending");
+    }
 }

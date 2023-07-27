@@ -13,7 +13,7 @@ import java.util.Set;
 @Inheritance(strategy= InheritanceType.JOINED)
 public class Users {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String userName;
     private String firstName;

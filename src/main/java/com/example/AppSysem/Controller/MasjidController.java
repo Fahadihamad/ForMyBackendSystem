@@ -203,6 +203,12 @@ public ResponseEntity<?> acceptApplication(@PathVariable("id") Integer id) {
 
         return masijidRepository.findByStatus("Rejected");
     }
+    @GetMapping("/pending")
+//    @PreAuthorize("hasRole('Admin','Staff')")
+    public List<Massjid_build> getPendingApplications() {
+
+        return masijidRepository.findByStatus("Pending");
+    }
 }
 
 

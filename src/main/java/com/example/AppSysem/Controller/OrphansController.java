@@ -33,10 +33,11 @@ public class OrphansController {
     private OrphansRepository orphansRepository;
     @Value("${upload.directory}")
     private String uploadDirectory;
+
     @PostMapping("/add")
     public ResponseEntity<Orphans> createMadrasaBuild(@ModelAttribute Orphans orphans,
-                                                            @RequestParam("file") MultipartFile file,
-                                                            @RequestParam("image") MultipartFile image) {
+                                                      @RequestParam("file") MultipartFile file,
+                                                      @RequestParam("image") MultipartFile image) {
         try {
             // Set the file data in the MassjidBuild object
             if (!file.isEmpty()) {
@@ -75,6 +76,7 @@ public class OrphansController {
 
         return new ResponseEntity<>(orphans, HttpStatus.OK);
     }
+
     @GetMapping("/image/{id}")
     public ResponseEntity<byte[]> getImage(@PathVariable Integer id) {
         Optional<Orphans> massjidBuildOptional = orphansRepository.findById(id);
@@ -94,6 +96,7 @@ public class OrphansController {
 
         return new ResponseEntity<>(imageData, headers, HttpStatus.OK);
     }
+
     @GetMapping("/file/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable Integer id) {
         Optional<Orphans> massjidBuildOptional = orphansRepository.findById(id);
@@ -132,20 +135,20 @@ public class OrphansController {
     }
 
 
-
     @GetMapping("/all")
-    public List<Orphans> getAllOrphans(){
+    public List<Orphans> getAllOrphans() {
         return this.orphansServices.getAllOrphans();
     }
 
     @Transactional
     @PutMapping("/update/{id}")
-    public Orphans updateOrphans(@RequestBody Orphans orphans){
+    public Orphans updateOrphans(@RequestBody Orphans orphans) {
         return this.orphansServices.updateOrphans(orphans);
     }
+
     @Transactional
     @DeleteMapping("/delete/{id}")
-    public void deleteOrphans(@PathVariable Integer id){
+    public void deleteOrphans(@PathVariable Integer id) {
 
         this.orphansServices.deleteOrphans(id);
     }
@@ -184,8 +187,15 @@ public class OrphansController {
 
         return orphansRepository.findByStatus("Accepted");
     }
+
     @GetMapping("/reject")
     public List<Orphans> getRejectedApplications() {
         return orphansRepository.findByStatus("Rejected");
+
+    }
+
+    @GetMapping("/pending")
+    public List<Orphans> getPendingApplications() {
+        return orphansRepository.findByStatus("Pending");
     }
 }
