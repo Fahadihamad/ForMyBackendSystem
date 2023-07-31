@@ -20,6 +20,7 @@ public class Application {
     private String status="Pending";
 
     private String date;
+    @Column(length = 3000)
     private String discription;
     @Lob
     private byte[] fileData;
