@@ -45,6 +45,9 @@ public class UserServices {
         applicant.setPassword(getEncodedPassword(applicant.getPassword()));
         return userRepository.save(applicant);
     }
+    public Users fetchStaffByUserName(String userName){
+        return this.userRepository.findStaffByUserName(userName);
+    }
     public Staffs createNewStaffs(Staffs staffs){
         Role role = roleRepository.findById("Staff").get();
 

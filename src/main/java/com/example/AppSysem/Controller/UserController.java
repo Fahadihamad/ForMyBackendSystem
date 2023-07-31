@@ -5,6 +5,7 @@ import com.example.AppSysem.Entity.Sponsor;
 import com.example.AppSysem.Entity.Staffs;
 import com.example.AppSysem.Entity.Users;
 import com.example.AppSysem.Services.JwtService;
+import com.example.AppSysem.Services.SponsorService;
 import com.example.AppSysem.Services.StaffService;
 import com.example.AppSysem.Services.UserServices;
 
@@ -29,6 +30,8 @@ public class UserController {
     public JwtService jwtService;
     @Autowired
     public StaffService staffService;
+    @Autowired
+    public SponsorService sponsorService;
 
     @PostConstruct
     public void initRolesAndUsers() {
@@ -37,9 +40,18 @@ public class UserController {
     }
 
     @PostMapping({"/createApplicant"})
-    public Users createNewApplicant(@RequestBody Users applicant) {
+    public Users createNewApplicant(@RequestBody Users applicant) throws Exception {
 
-        return userServices.createNewApplicant(applicant);
+        String name = applicant.getUserName();
+        if(name != null && !"".equals(name)){
+            Users applicant1 =  userServices.fetchStaffByUserName(name);
+            if(applicant1 !=null){
+                throw new Exception("user with user name"+" "+name+" "+"already exist");
+            }
+        }
+        Users applicant1= null;
+        applicant1 = userServices.createNewApplicant(applicant);
+        return applicant1;
 
     }
 
@@ -58,9 +70,18 @@ public class UserController {
     }
 
     @PostMapping({"/createSponsors"})
-    public Sponsor createNewSponsors(@RequestBody Sponsor sponsors) {
+    public Sponsor createNewSponsors(@RequestBody Sponsor sponsors) throws Exception {
 
-        return userServices.createNewSponsors(sponsors);
+        String name = sponsors.getUserName();
+        if(name != null && !"".equals(name)){
+            Sponsor sponsor1 =  sponsorService.fetchStaffByUserName(name);
+            if(sponsor1 !=null){
+                throw new Exception("user with user name"+" "+name+" "+"already exist");
+            }
+        }
+        Sponsor sponsor1= null;
+        sponsor1 = userServices.createNewSponsors(sponsors);
+        return sponsor1;
     }
 
 
